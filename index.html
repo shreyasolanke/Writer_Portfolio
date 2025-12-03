@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreya Solanke | Screenwriter • Songwriter • Writer • Technologist</title>
+    <style>
+        :root {
+            --color-background: #f5f5f2;
+            --color-surface: #ffffff;
+            --color-text: #1f2121;
+            --color-text-secondary: #626c71;
+            --color-primary: #218091;
+            --color-primary-hover: #1d7380;
+            --color-accent: #e68281;
+            --color-accent-light: rgba(230, 130, 129, 0.1);
+            --color-border: rgba(94, 82, 64, 0.15);
+            --color-success: #50b8c6;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            --space-8: 8px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-16) var(--space-32);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-24);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-48) var(--space-32);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-48);
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 32px;
+            color: var(--color-text);
+            margin-bottom: var(--space-16);
+            line-height: 1.2;
+        }
+
+        .hero-content .tagline {
+            font-size: 18px;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: var(--space-24);
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-16);
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-16);
+            margin-top: var(--space-32);
+        }
+
+        .btn {
+            padding: var(--space-16) var(--space-32);
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-accent-light);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .hero-image {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background-size: cover;
+            background-position: center;
+            border: 4px solid var(--color-surface);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .placeholder-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: var(--space-16);
+            font-family: 'Courier New', monospace;
+        }
+
+        .about {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-48) var(--space-32);
+            background: var(--color-surface);
+            border-radius: 16px;
+            margin-bottom: var(--space-48);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: var(--color-text);
+            margin-bottom: var(--space-32);
+            padding-bottom: var(--space-16);
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-32);
+            margin-top: var(--space-32);
+        }
+
+        .about-block h3 {
+            font-size: 18px;
+            color: var(--color-primary);
+            margin-bottom: var(--space-16);
+        }
+
+        .about-block p {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-16);
+        }
+
+        .about-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-block li {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-8);
+            padding-left: var(--space-24);
+            position: relative;
+        }
+
+        .about-block li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        .expertise {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-48) var(--space-32);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-24);
+            margin-top: var(--space-32);
+        }
+
+        .expertise-card {
+            background: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: 12px;
+            border-left: 4px solid var(--color-primary);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-left-color: var(--color-accent);
+        }
+
+        .expertise-card h4 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-8);
+            font-size: 16px;
+        }
+
+        .expertise-card p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .portfolio {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-48) var(--space-32);
+        }
+
+        .portfolio-category {
+            margin-bottom: var(--space-48);
+        }
+
+        .portfolio-category-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-24);
+            padding-bottom: var(--space-16);
+            border-bottom: 2px solid var(--color-accent-light);
+            display: inline-block;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-24);
+            margin-top: var(--space-24);
+            margin-bottom: var(--space-32);
+        }
+
+        .portfolio-item {
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--color-surface);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+        }
+
+        .portfolio-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
+            color: white;
+            padding: var(--space-24);
+            text-align: center;
+        }
+
+        .portfolio-header h3 {
+            font-size: 18px;
+            margin-bottom: var(--space-8);
+            font-weight: 600;
+        }
+
+        .portfolio-header .genre {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .portfolio-body {
+            padding: var(--space-24);
+        }
+
+        .portfolio-body p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-bottom: var(--space-16);
+            line-height: 1.7;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-8);
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-16);
+            padding-top: var(--space-16);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .work-list {
+            background: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: 12px;
+            border-left: 4px solid var(--color-success);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .work-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .work-list li {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-12);
+            padding-left: var(--space-24);
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .work-list li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        .credentials {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-48) var(--space-32);
+        }
+
+        .credentials-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-48);
+            margin-top: var(--space-32);
+        }
+
+        .credentials-column h3 {
+            color: var(--color-primary);
+            font-size: 18px;
+            margin-bottom: var(--space-24);
+        }
+
+        .credential-item {
+            margin-bottom: var(--space-32);
+            background: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: 8px;
+            border-left: 4px solid var(--color-success);
+        }
+
+        .credential-item .title {
+            font-weight: 600;
+            color: var(--color-text);
+            font-size: 16px;
+        }
+
+        .credential-item .org {
+            color: var(--color-primary);
+            font-size: 14px;
+            margin-top: var(--space-8);
+        }
+
+        .credential-item .description {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-top: var(--space-8);
+            line-height: 1.6;
+        }
+
+        .contact {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-48) var(--space-32);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
+            border-radius: 16px;
+            color: white;
+            text-align: center;
+            margin-bottom: var(--space-48);
+        }
+
+        .contact h2 {
+            font-size: 24px;
+            margin-bottom: var(--space-24);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-32);
+            margin: var(--space-32) 0;
+        }
+
+        .contact-method {
+            padding: var(--space-16);
+        }
+
+        .contact-method label {
+            display: block;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+        }
+
+        .contact-method a,
+        .contact-method p {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .contact-method a {
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-method a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .filled-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+
+        footer {
+            background: var(--color-text);
+            color: white;
+            text-align: center;
+            padding: var(--space-32);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--color-success);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-8) var(--space-16);
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .logline-placeholder {
+            font-style: italic;
+            color: var(--color-text-secondary);
+            opacity: 0.7;
+            border-left: 3px solid var(--color-accent);
+            padding-left: var(--space-16);
+            margin: var(--space-8) 0;
+        }
+
+        .link-placeholder {
+            color: var(--color-text-secondary);
+            opacity: 0.6;
+            font-style: italic;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .link-placeholder:hover {
+            opacity: 0.6;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: var(--space-32) var(--space-16);
+            }
+
+            .nav-links {
+                gap: var(--space-16);
+                font-size: 12px;
+            }
+
+            .about-grid,
+            .credentials-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Shreya</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Genres & Styles</a></li>
+                <li><a href="#portfolio">Published Works</a></li>
+                <li><a href="#credentials">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tagline">Screenwriter • Songwriter • Writer • Technologist - AI/AIoT</div>
+            <h1>Shreya Solanke</h1>
+            <p>Passionate screenwriter and songwriter with a rare fusion of creative storytelling and technical depth. Published author of five poetry collections, multiple screenplays, and original songs, blending mythology, human emotion, and contemporary themes.</p>
+            <p>Crafting narratives that explore love, identity, and the human condition—from intimate family dramas to satirical web series, from lyrical poetry to sonic storytelling.</p>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="Photos/DSC06641.JPG" alt="Shreya Solanke - Screenwriter, Songwriter, Writer">
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-grid">
+            <div class="about-block">
+                <h3>Creative Background</h3>
+                <p>Published author of five poetry collections exploring themes of cross-border love, identity, and human connection.</p>
+                <p>Actively developing screenplays, web series, and short film scripts inspired by Indian cinema, with a focus on character-driven narratives.</p>
+                <p>Songwriter blending storytelling with sonic artistry—original compositions that explore love, longing, and the human experience.</p>
+                <p>Pursuing formal education in Creative Writing and Screenwriting at University of Cambridge, studying narrative structure, character psychology, and the craft of storytelling.</p>
+            </div>
+            <div class="about-block">
+                <h3>Technical Passion Areas</h3>
+                <p>While my heart belongs to storytelling, I bring a unique perspective from my technical background:</p>
+                <ul>
+                    <li><strong>AI, Agentic AI & Applied AI</strong> — Exploring the intersection of artificial intelligence and human creativity</li>
+                    <li><strong>Net0 Carbon Footprint Initiative</strong> — Passionate about sustainability and environmental impact</li>
+                    <li><strong>IoT Contributions</strong> — IEEE Standards Contributor on Edge Computing & IoT Security</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="expertise">
+        <h2 class="section-title">Genres</h2>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <h4>Drama</h4>
+                <p>Character-driven narratives exploring human relationships, family dynamics, and emotional authenticity.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Comedy-Drama</h4>
+                <p>Satirical takes on modern life, corporate culture, and social dynamics with witty dialogue.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Romance</h4>
+                <p>Contemporary love stories set across London and India, exploring cross-cultural connections.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Thriller</h4>
+                <p>Suspenseful narratives with tension, unexpected twists, and high-stakes storytelling.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Satire</h4>
+                <p>Sharp commentary on arranged marriages, corporate life, and societal expectations.</p>
+            </div>
+        </div>
+        
+        <h2 class="section-title" style="margin-top: var(--space-48);">Writing Styles</h2>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <h4>Feature Films</h4>
+                <p>Full-length screenplays with layered characters, compelling arcs, and cinematic storytelling.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Short Films</h4>
+                <p>Intimate, impactful narratives that capture powerful moments in compact formats.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Web Series</h4>
+                <p>Episodic storytelling with serialized character development and engaging cliffhangers.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Micro Drama</h4>
+                <p>Bite-sized narratives optimized for digital platforms and short attention spans.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Songs & Lyrics</h4>
+                <p>Original compositions blending poetry with melody, inspired by Bollywood's finest lyricists.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Poetry</h4>
+                <p>Published collections exploring love, identity, and human connection with lyrical precision.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Novels</h4>
+                <p>Long-form fiction with vivid world-building and commercial appeal.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Cross-Cultural Narratives</h4>
+                <p>Stories honoring Indian and British cultural contexts with universal emotional resonance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title">Published Works</h2>
+
+        <!-- Poetry Collections -->
+        <div class="portfolio-category">
+            <h3 class="portfolio-category-title">Poetry Collections</h3>
+            <div class="work-list">
+                <ul>
+                    <li><strong>Muse of Hearts</strong> - <a href="https://amzn.in/d/9IqdPyF" target="_blank" rel="noopener noreferrer">View on Amazon</a></li>
+                    <li><strong>Ishqedaariyan</strong> - <a href="https://amzn.in/d/2Zg2cgY" target="_blank" rel="noopener noreferrer">View on Amazon</a></li>
+                    <li><strong>Kashmakash</strong> - <a href="https://amzn.in/d/is9nUaK" target="_blank" rel="noopener noreferrer">View on Amazon</a></li>
+                    <li><strong>Bikhre Panne</strong> - <a href="https://amzn.in/d/9yzFcGW" target="_blank" rel="noopener noreferrer">View on Amazon</a></li>
+                    <li><strong>Firaq-e-Firav</strong> - <a href="https://amzn.in/d/aDA5FDp" target="_blank" rel="noopener noreferrer">View on Amazon</a></li>
+                </ul>
+                <p style="margin-top: var(--space-16); color: var(--color-text-secondary);"><strong>Themes:</strong> Identity, love across borders, human connection, emotional vulnerability</p>
+            </div>
+        </div>
+
+        <!-- Songs -->
+        <div class="portfolio-category">
+            <h3 class="portfolio-category-title">Songs</h3>
+            <div class="work-list">
+                <ul>
+                    <li><strong>Original Compositions</strong> - Blending storytelling with sonic artistry</li>
+                    <li><strong>Genres:</strong> Indie, Contemporary, Folk-influenced</li>
+                </ul>
+                <p style="color: var(--color-text-secondary); margin-top: var(--space-16); font-size: 14px;"><strong>Spotify Profile:</strong> <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">[Spotify Link: To be added]</a></p>
+            </div>
+        </div>
+
+        <!-- Writing Samples -->
+        <div class="portfolio-category">
+            <h3 class="portfolio-category-title">Writing Samples</h3>
+            <div class="work-list">
+                <ul>
+                    <li><strong>Screenplay Sample</strong> - <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">[Link: To be added]</a></li>
+                    <li><strong>Short Film Script</strong> - <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">[Link: To be added]</a></li>
+                    <li><strong>Web Series Pilot</strong> - <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">[Link: To be added]</a></li>
+                    <li><strong>Poetry Sample</strong> - <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">[Link: To be added]</a></li>
+                    <li><strong>Song Lyrics</strong> - <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">[Link: To be added]</a></li>
+                </ul>
+                <p style="margin-top: var(--space-16); color: var(--color-text-secondary); font-size: 14px;"><em>Writing samples available upon request. Please reach out via email or LinkedIn.</em></p>
+            </div>
+        </div>
+
+    </section>
+    </main>
+
+    <section id="credentials" class="credentials">
+        <h2 class="section-title">Education & Credentials</h2>
+        <div class="credentials-columns">
+            <div class="credentials-column">
+                <h3>Writing Education</h3>
+                
+                <div class="credential-item">
+                    <div class="title">BA in Creative Writing (Fiction)</div>
+                    <div class="org">University of Cambridge</div>
+                    <div class="description">Graduated 2025. Formal study of narrative structure, character development, and literary craft.</div>
+                </div>
+
+                <div class="credential-item">
+                    <div class="title">Certificate in Songwriting: Writing the Lyrics</div>
+                    <div class="org">Berklee School of Music (Online)</div>
+                    <div class="description">Graduated 2025. Professional training in lyric writing and song structure.</div>
+                </div>
+
+                <div class="credential-item">
+                    <div class="title">Certificate in Creative Writing: The Craft of Character</div>
+                    <div class="org">Wesleyan University</div>
+                    <div class="description">Specialized study in character psychology and development.</div>
+                </div>
+
+                <div class="credential-item">
+                    <div class="title">PGDM in AI and Agentic AI</div>
+                    <div class="org">IIT Kharagpur (Pursuing)</div>
+                    <div class="description">Advanced study in artificial intelligence and its applications.</div>
+                </div>
+            </div>
+
+            <div class="credentials-column">
+                <h3>Recognition</h3>
+                
+                <div class="credential-item">
+                    <div class="title">Published Author</div>
+                    <div class="org">Amazon / Independent Publishing</div>
+                    <div class="description">5 poetry collections published and available on Amazon.</div>
+                </div>
+
+                <div class="credential-item">
+                    <div class="title">Multilingual Writing Program</div>
+                    <div class="org">University of Newcastle</div>
+                    <div class="description">Invite-only program for multilingual writers.</div>
+                </div>
+
+                <div class="credential-item">
+                    <div class="title">IEEE Standards Contributor</div>
+                    <div class="org">IEEE Standards Association</div>
+                    <div class="description">Co-author on standards for Edge Computing & IoT Security.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Let's Connect</h2>
+        <p>I'm open to writing projects, collaborations, speaking engagements, and meaningful conversations about storytelling at the intersection of technology and humanity.</p>
+        <div class="contact-info">
+            <div class="contact-method">
+                <label>Email</label>
+                <a href="mailto:solankeshreya@gmail.com">solankeshreya@gmail.com</a>
+            </div>
+            <div class="contact-method">
+                <label>Phone</label>
+                <a href="tel:+447769375615">+44 7769 375615</a> / <a href="tel:+916361414383">+91 6361414383</a>
+            </div>
+            <div class="contact-method">
+                <label>LinkedIn</label>
+                <a href="https://www.linkedin.com/in/shreya-solanke-88b48984/" target="_blank" rel="noopener noreferrer">linkedin.com/in/shreya-solanke</a>
+            </div>
+            <div class="contact-method">
+                <label>Instagram</label>
+                <a href="https://www.instagram.com/shreyakshi23/" target="_blank" rel="noopener noreferrer">@shreyakshi23</a>
+            </div>
+            <div class="contact-method">
+                <label>Spotify</label>
+                <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">[Spotify Link: To be added]</a>
+                <span class="filled-badge">UPDATE ME</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Shreya Solanke. All rights reserved.</p>
+        <p style="margin-top: 16px; font-size: 12px;">Screenwriter • Songwriter • Writer • Storyteller</p>
+    </footer>
+</body>
+</html>
