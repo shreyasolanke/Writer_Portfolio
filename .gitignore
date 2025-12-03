@@ -1,0 +1,30 @@
+# OS Files
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+*.log.*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build artifacts (if any)
+dist/
+build/
+*.min.js
+*.min.css
+
+# Temporary files
+*.bak
+*.cache
+
